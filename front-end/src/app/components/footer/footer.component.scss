@@ -1,0 +1,19 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixin";
+
+footer {
+  @include centralizeMax();
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+
+  h3 {
+    font-size: $font-xl;
+  }
+
+  p {
+    font-size: $font-base;
+  }
+}
