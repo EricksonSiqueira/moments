@@ -1,0 +1,39 @@
+@import "./../../../styles/variables.scss";
+
+header {
+  height: 7.2rem;
+  border-bottom: 1px solid $bg-dark-2;
+}
+
+nav {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: $device-xl;
+
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    li {
+      margin: 0 1.6rem;
+
+      a {
+        font-size: $font-base;
+        padding: 0.8rem;
+        border-radius: 0.6rem;
+
+        &:hover {
+          background-color: $bg-dark-2;
+        }
+      }
+    }
+  }
+
+  h2 {
+    font-size: 4rem;
+  }
+}
