@@ -1,20 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "./styles//variables";
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-  color: #444;
+  color: $text-color;
+  background-color: $bg-dark;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 a {
   text-decoration: none;
-  color: #444;
-  transition: all ease-in-out 400ms;
-
-  &:hover {
-    text-decoration: underline;
-  }
+  color: $text-color;
+  transition: all ease-in-out 200ms;
 }
 
 li {
