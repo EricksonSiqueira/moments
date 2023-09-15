@@ -1,0 +1,7 @@
+@import "../styles/variables";
+
+@mixin centralizeMax() {
+  max-width: $device-xl;
+  width: 100%;
+  margin: 0 auto;
+}
