@@ -1,17 +1,17 @@
-@import "./../../../styles/variables.scss";
+@import "./../../../styles/variables";
+@import "./../../../styles/mixin";
 
 header {
   height: 7.2rem;
-  border-bottom: 1px solid $bg-dark-2;
+  border-bottom: 0.1rem solid $bg-dark-2;
 }
 
 nav {
+  @include centralizeMax();
   display: flex;
   height: 100%;
   align-items: center;
   justify-content: space-between;
-  margin: 0 auto;
-  max-width: $device-xl;
 
   ul {
     display: flex;
