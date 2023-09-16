@@ -1,0 +1,57 @@
+@import "../styles/variables";
+
+form {
+  width: 45rem;
+  margin: 0 auto 2rem;
+  padding: 3.2rem;
+  background-color: $bg-dark-2;
+  border-radius: $rounded;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: transparent;
+
+    label {
+      font-size: $font-lg;
+      color: $text-color-2;
+      background-color: transparent;
+    }
+
+    textarea,
+    input {
+      padding: 0.6rem;
+      border: 0.1rem solid $bg-dark-3;
+      border-radius: $rounded;
+      margin-bottom: 1.2rem;
+
+      &:focus {
+        outline: none;
+        border-color: $bg-dark-4;
+        box-shadow: 0 0 0.2rem $bg-dark-4;
+      }
+    }
+    input[type="file"]::file-selector-button {
+      background-color: $bg-dark-4;
+      border: none;
+      padding: 0.4rem;
+      border-radius: $rounded;
+      color: $text-color;
+      cursor: pointer;
+    }
+  }
+
+  button {
+    border-radius: $rounded;
+    border: 0.1rem solid $bg-dark-3;
+    background-color: $bg-dark-2;
+    height: 4rem;
+    width: 100%;
+    font-size: $font-base;
+
+    &:hover {
+      background-color: $bg-dark-3;
+    }
+  }
+}

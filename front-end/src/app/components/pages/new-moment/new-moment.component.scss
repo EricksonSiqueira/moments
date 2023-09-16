@@ -1,0 +1,13 @@
+@import "./../../../../styles/mixin";
+@import "./../../../../styles/variables";
+
+article {
+  @include centralizeMax();
+  @include flexCenter(column);
+  margin: 4rem auto;
+  gap: 2rem;
+
+  h2 {
+    font-size: $font-xl;
+  }
+}
