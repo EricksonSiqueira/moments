@@ -1,4 +1,4 @@
 <article>
   <h2>Compartilhe o seu momento!</h2>
-  <app-moment-form [btnText]="btnText"></app-moment-form>
+  <app-moment-form [btnText]="btnText" (onSubmit)="createHandler($event)"></app-moment-form>
 </article>
