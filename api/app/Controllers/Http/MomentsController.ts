@@ -41,7 +41,7 @@ export default class MomentsController {
     const moments = await Moment.query().preload('comments')
 
     return {
-      moments,
+      data: moments,
     }
   }
 
