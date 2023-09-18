@@ -5,6 +5,8 @@ import { MomentService } from 'src/app/services/moment.service';
 
 import { environment } from 'src/environments/environment';
 
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,6 +16,7 @@ export class HomeComponent implements OnInit {
   moments: Moment[] = [];
   filteredMoments: Moment[] = [];
   baseApiUrl = environment.baseApiUrl;
+  faSearch = faSearch;
 
   //todo search
 
@@ -33,5 +36,14 @@ export class HomeComponent implements OnInit {
       this.moments = threatedMoments;
       this.filteredMoments = threatedMoments;
     });
+  }
+
+  search(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const searchValue = input.value;
+
+    this.filteredMoments = this.moments.filter((moment) =>
+      moment.title.toLowerCase().includes(searchValue.toLowerCase())
+    );
   }
 }

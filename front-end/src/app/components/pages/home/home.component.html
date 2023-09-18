@@ -1,7 +1,11 @@
 <div>
   <h1>Veja o que estão compartilhando</h1>
-  <div *ngIf="moments.length > 0; else noMoments" class="moments-container">
-    <div *ngFor="let moment of moments" class="moment">
+  <div *ngIf="filteredMoments.length > 0; else noMoments" class="moments-container">
+    <form>
+      <fa-icon [icon]="faSearch" class="search-icon"></fa-icon>
+      <input type="text" placeholder="busque por um momento..." (input)="search($event)">
+    </form>
+    <div *ngFor="let moment of filteredMoments" class="moment">
       <img src="{{baseApiUrl}}uploads/{{moment.image}}" alt="{{moment.title}}">
       <h2>{{moment.title}}</h2>
       <p>Em: {{moment.created_at}}</p>
