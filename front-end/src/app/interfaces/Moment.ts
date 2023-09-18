@@ -1,7 +1,7 @@
 import { Comment } from './Comment';
 
 export interface Moment {
-  id?: string;
+  id?: number;
   title: string;
   description: string;
   image: string;

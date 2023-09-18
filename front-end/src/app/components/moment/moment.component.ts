@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Moment } from 'src/app/interfaces/Moment';
+import { MessagesService } from 'src/app/services/messages.service';
 import { MomentService } from 'src/app/services/moment.service';
 
 @Component({
@@ -8,13 +9,17 @@ import { MomentService } from 'src/app/services/moment.service';
   templateUrl: './moment.component.html',
   styleUrls: ['./moment.component.scss'],
 })
-export class MomentComponent {
+export class MomentComponent implements OnInit {
   moment!: Moment;
 
   constructor(
     private momentService: MomentService,
-    private route: ActivatedRoute
-  ) {
+    private route: ActivatedRoute,
+    private messagesService: MessagesService,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
     this.getMoment();
   }
 
@@ -30,6 +35,14 @@ export class MomentComponent {
       };
 
       this.moment = threatedMoment;
+    });
+  }
+
+  removeHandler(id: number) {
+    this.momentService.removeMoment(id).subscribe(() => {
+      this.messagesService.add('Momento excluido com sucesso!');
+
+      this.router.navigate(['/']);
     });
   }
 }

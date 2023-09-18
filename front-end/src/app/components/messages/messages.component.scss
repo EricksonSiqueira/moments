@@ -4,7 +4,7 @@
 div.message {
   position: fixed;
   top: 8rem;
-  width: 30rem;
+  width: fit-content;
   right: 1rem;
   z-index: 10;
   background-color: $bg-dark-2;
@@ -20,20 +20,14 @@ div.message {
 
     div.check-wrapper {
       @include flexCenter();
-      width: 1.8rem;
-      height: 1.8rem;
+      width: 2.4rem;
+      height: 2.4rem;
       border-radius: 1000px;
       background-color: green;
     }
 
     h2 {
       font-size: $font-base;
-    }
-
-    button {
-      position: absolute;
-      top: -0.2rem;
-      right: -0.2rem;
     }
   }
 }

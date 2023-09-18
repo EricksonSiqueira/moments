@@ -1,4 +1,5 @@
 <div *ngIf="!!moment">
   <p>{{moment.title}}</p>
   <p>{{moment.description}}</p>
+  <button (click)="removeHandler(moment.id!)">Remover</button>
 </div>
