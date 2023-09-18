@@ -11,6 +11,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NewMomentComponent } from './components/pages/new-moment/new-moment.component';
 import { MomentFormComponent } from './components/moment-form/moment-form.component';
+import { MessagesComponent } from './components/messages/messages.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { MomentFormComponent } from './components/moment-form/moment-form.compon
     FooterComponent,
     NewMomentComponent,
     MomentFormComponent,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,7 @@ import { MomentFormComponent } from './components/moment-form/moment-form.compon
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
