@@ -6,7 +6,8 @@ import { Moment } from 'src/app/interfaces/Moment';
 import { CommentService } from 'src/app/services/comment.service';
 import { MessagesService } from 'src/app/services/messages.service';
 import { MomentService } from 'src/app/services/moment.service';
-
+import { environment } from 'src/environments/environment';
+import { faEdit, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-moment',
   templateUrl: './moment.component.html',
@@ -16,6 +17,11 @@ export class MomentComponent implements OnInit {
   moment!: Moment;
 
   commentForm!: FormGroup;
+
+  baseApiUrl = environment.baseApiUrl;
+
+  faEdit = faEdit;
+  faTrashCan = faTrashCan;
 
   constructor(
     private momentService: MomentService,

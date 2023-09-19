@@ -2,4 +2,81 @@
 
 form {
   @extend form;
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  border-top: 0.1rem solid $bg-dark-3;
+
+  h3 {
+    font-size: $font-base;
+    margin-bottom: 1.2rem;
+  }
+}
+
+div.moment {
+  max-width: 50rem;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+
+  div.moment-image-wrapper {
+    width: 100%;
+    position: relative;
+
+    div.moment-options {
+      position: absolute;
+      display: flex;
+      gap: 1.6rem;
+      bottom: 0.8rem;
+      right: 0.8rem;
+    }
+  }
+
+  div.comments,
+  div.moment-content {
+    @include flexCenter(column);
+    padding: 1.2rem 0.8rem;
+    width: 100%;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  div.comment-container {
+    display: flex;
+    gap: 0.4rem;
+    margin-bottom: 0.8rem;
+
+    p.author {
+      color: $text-color;
+    }
+  }
+
+  div.comments {
+    border-top: 0.1rem solid $bg-dark-3;
+    h2 {
+      font-size: $font-sm;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+  }
+
+  h2 {
+    font-size: $font-base;
+  }
+
+  p,
+  a {
+    font-size: $font-xsm;
+    color: $text-color-2;
+  }
+}
+
+@media (min-width: 500px) {
+  form {
+    border-radius: $rounded $rounded 0 0;
+  }
 }

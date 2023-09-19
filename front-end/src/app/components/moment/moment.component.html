@@ -1,23 +1,34 @@
-<div *ngIf="!!moment">
-  <h1>{{moment.title}}</h1>
-  <p>{{moment.description}}</p>
-  <button (click)="removeHandler(moment.id!)">Remover</button>
-  <a routerLink="/moments/edit/{{moment.id}}">Editar</a>
-  <div class="coments">
+<div *ngIf="!!moment" class="moment">
+  <div class="moment-image-wrapper">
+    <img src="{{baseApiUrl}}uploads/{{moment.image}}" alt="{{moment.title}}">
+    <div class="moment-options">
+      <button (click)="removeHandler(moment.id!)">
+        <fa-icon [icon]="faTrashCan" [size]="'lg'"></fa-icon>
+      </button>
+      <a routerLink="/moments/edit/{{moment.id}}">
+        <fa-icon [icon]="faEdit" [size]="'lg'"></fa-icon>
+      </a>
+    </div>
+  </div>
+  <div class="moment-content">
+    <h1>{{moment.title}}</h1>
+    <p>{{moment.description}}</p>
+  </div>
+  <div class="comments">
     <h2>Comentários ({{moment.comments?.length || 0}})</h2>
     <div *ngIf="moment.comments?.length! > 0; else noComments">
-      <div class="comments-container" *ngFor="let comment of moment.comments">
+      <div class="comment-container" *ngFor="let comment of moment.comments">
+        <p class="author"><span></span>{{comment.username}}: </p>
         <p class="comment">{{comment.text}}</p>
-        <p class="author"><span>por: </span>{{comment.username}}</p>
       </div>
     </div>
     <ng-template #noComments>
-      <p>Não há comentários</p>
+      <p>Seja o primeiro a comentar</p>
     </ng-template>
   </div>
   <div class="comment-form">
-    <h3>Deixe um comentário</h3>
     <form (ngSubmit)="onSubmit(formDir)" [formGroup]="commentForm" #formDir="ngForm">
+      <h3>Deixe um comentário</h3>
       <div class="form-group">
         <label for="username">Nome*</label>
         <input type="text" placeholder="Digite seu nome" required formControlName="username">
