@@ -6,7 +6,14 @@ article {
   @include flexCenter(column);
   margin: 4rem auto;
   gap: 2rem;
+  width: 100%;
 
+  h2 {
+    font-size: $font-lg;
+  }
+}
+
+@media (min-width: 768px) {
   h2 {
     font-size: $font-xl;
   }
