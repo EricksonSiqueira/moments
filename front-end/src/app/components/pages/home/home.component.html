@@ -1,16 +1,22 @@
-<div>
+<div class="home">
   <h1>Veja o que estão compartilhando</h1>
+  <form class="search-form">
+    <fa-icon [icon]="faSearch" class="search-icon" [size]="'xl'"></fa-icon>
+    <input type="text" placeholder="busque por um momento..." (input)="search($event)">
+  </form>
   <div *ngIf="filteredMoments.length > 0; else noMoments" class="moments-container">
-    <form>
-      <fa-icon [icon]="faSearch" class="search-icon"></fa-icon>
-      <input type="text" placeholder="busque por um momento..." (input)="search($event)">
-    </form>
     <div *ngFor="let moment of filteredMoments" class="moment">
       <img src="{{baseApiUrl}}uploads/{{moment.image}}" alt="{{moment.title}}">
-      <h2>{{moment.title}}</h2>
-      <p>Em: {{moment.created_at}}</p>
-      <p>Comentários: {{moment.comments!.length}}</p>
-      <a routerLink="moments/{{moment.id}}">Detalhes</a>
+      <div class="moment-content">
+        <h2>{{moment.title}}</h2>
+        <p>{{moment.created_at}}</p>
+        <a *ngIf="moment.comments!.length > 0; else noComments" routerLink="moments/{{moment.id}}">Ver todos os
+          {{moment.comments!.length}}
+          comentários </a>
+        <ng-template #noComments>
+          <a routerLink="moments/{{moment.id}}">Ver detalhes </a>
+        </ng-template>
+      </div>
     </div>
   </div>
   <ng-template #noMoments>
