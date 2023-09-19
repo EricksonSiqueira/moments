@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, FormGroupDirective } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Comment } from 'src/app/interfaces/Comment';
 import { Moment } from 'src/app/interfaces/Moment';
+import { CommentService } from 'src/app/services/comment.service';
 import { MessagesService } from 'src/app/services/messages.service';
 import { MomentService } from 'src/app/services/moment.service';
 
@@ -12,15 +15,31 @@ import { MomentService } from 'src/app/services/moment.service';
 export class MomentComponent implements OnInit {
   moment!: Moment;
 
+  commentForm!: FormGroup;
+
   constructor(
     private momentService: MomentService,
     private route: ActivatedRoute,
     private messagesService: MessagesService,
-    private router: Router
+    private router: Router,
+    private commentService: CommentService
   ) {}
 
   ngOnInit(): void {
     this.getMoment();
+
+    this.commentForm = new FormGroup({
+      username: new FormControl(''),
+      text: new FormControl(''),
+    });
+  }
+
+  get username() {
+    return this.commentForm.get('username')!;
+  }
+
+  get text() {
+    return this.commentForm.get('text')!;
   }
 
   async getMoment() {
@@ -44,5 +63,26 @@ export class MomentComponent implements OnInit {
 
       this.router.navigate(['/']);
     });
+  }
+
+  async onSubmit(formDirective: FormGroupDirective) {
+    if (this.commentForm.invalid) {
+      return;
+    }
+
+    const comment: Comment = {
+      ...this.commentForm.value,
+      momentId: this.moment.id,
+    };
+
+    await this.commentService
+      .createComment(comment)
+      .subscribe((response) => this.moment.comments?.push(response.data));
+
+    this.messagesService.add('Comentário adicionado com sucesso!');
+
+    this.commentForm.reset();
+
+    formDirective.resetForm();
   }
 }
