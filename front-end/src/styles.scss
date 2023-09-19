@@ -2,6 +2,11 @@
 
 @import "./styles//variables";
 
+@font-face {
+  font-family: "Caveat";
+  src: url("../assets/Caveat-Medium.ttf");
+}
+
 * {
   margin: 0;
   padding: 0;
