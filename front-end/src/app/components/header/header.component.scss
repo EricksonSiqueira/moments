@@ -4,6 +4,7 @@
 header {
   height: 7.2rem;
   border-bottom: 0.1rem solid $bg-dark-2;
+  width: 100%;
 }
 
 nav {
@@ -12,7 +13,7 @@ nav {
   height: 100%;
   align-items: center;
   justify-content: space-between;
-  padding: 0 2rem;
+  padding: 0 0.8rem;
 
   ul {
     display: flex;
@@ -20,11 +21,11 @@ nav {
     justify-content: space-between;
 
     li {
-      margin: 0 1.6rem;
+      margin: 0 0.4rem;
 
       a {
-        font-size: $font-base;
-        padding: 0.8rem;
+        font-size: $font-sm;
+        padding: 0.4rem;
         border-radius: 0.6rem;
 
         &:hover {
@@ -35,7 +36,28 @@ nav {
   }
 
   h2 {
-    font-size: 4rem;
+    font-size: $font-xl;
     font-family: "Caveat";
+  }
+}
+
+@media (min-width: 768px) {
+  nav {
+    padding: 0 2rem;
+    ul {
+      li {
+        margin: 0 1.6rem;
+
+        a {
+          padding: 0.8rem;
+          font-size: $font-base;
+        }
+      }
+    }
+
+    h2 {
+      font-size: 4rem;
+      font-family: "Caveat";
+    }
   }
 }
