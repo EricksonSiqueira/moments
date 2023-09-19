@@ -1,4 +1,5 @@
 <form (ngSubmit)="submit()" [formGroup]="mommentForm" #formDir="ngForm">
+  <input type="hidden" formControlName="id" />
   <div class="form-group">
     <label for="title">Título*</label>
     <input placeholder="Coloque um título" formControlName="title" required />
