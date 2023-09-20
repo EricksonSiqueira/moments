@@ -28,10 +28,10 @@ export class NewMomentComponent {
       formData.append('image', moment.image);
     }
 
-    await this.momentService.createMoment(formData).subscribe();
+    this.momentService.createMoment(formData).subscribe(() => {
+      this.messageService.add('Momento criado com sucesso!');
 
-    this.messageService.add('Momento criado com sucesso!');
-
-    this.router.navigate(['/']);
+      this.router.navigate(['/'], { skipLocationChange: true });
+    });
   }
 }

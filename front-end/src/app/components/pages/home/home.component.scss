@@ -50,6 +50,7 @@ div.home {
     @include flexCenter(column);
     border-bottom: 0.1rem solid $bg-dark-3;
     max-width: 50rem;
+    width: 100%;
 
     div.moment-content {
       @include flexCenter(column);
