@@ -2,10 +2,13 @@
   "name": "moments-api",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": "18.16.0."
+  },
   "scripts": {
     "dev": "node ace serve --watch",
     "build": "node ace build --production",
-    "start": "node server.js",
+    "start": "node build/server.js",
     "test": "node ace test",
     "lint": "eslint . --ext=.ts",
     "format": "prettier --write ."
