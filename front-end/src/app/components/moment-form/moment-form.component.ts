@@ -13,6 +13,7 @@ export class MomentFormComponent implements OnInit {
   @Input() momentData: Moment | null = null;
 
   mommentForm!: FormGroup;
+  isSubmiting = true;
 
   ngOnInit(): void {
     this.mommentForm = new FormGroup({
@@ -52,6 +53,14 @@ export class MomentFormComponent implements OnInit {
       return;
     }
 
+    const oldBtnText = this.btnText;
+
+    this.isSubmiting = true;
+    this.btnText = 'Enviando...';
+
     this.onSubmit.emit(this.mommentForm.value);
+
+    this.isSubmiting = false;
+    this.btnText = oldBtnText;
   }
 }

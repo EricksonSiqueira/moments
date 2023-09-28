@@ -67,6 +67,10 @@ form {
     &:hover {
       background-color: $bg-dark-3;
     }
+
+    &:disabled {
+      background-color: $bg-dark-4;
+    }
   }
 }
 

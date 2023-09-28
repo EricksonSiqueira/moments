@@ -18,5 +18,5 @@
     <label for="image">Coloque a foto que mais marcou:</label>
     <input type="file" (change)="onFileSelected($event)" required />
   </div>
-  <button type="submit">{{btnText}}</button>
+  <button type="submit" disabled={{isSubmiting}}>{{btnText}}</button>
 </form>
