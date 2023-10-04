@@ -12,6 +12,7 @@ import { MomentService } from 'src/app/services/moment.service';
 export class EditMomentComponent implements OnInit {
   moment!: Moment;
   btnText = 'Editar momento';
+  isSubmiting = false;
 
   constructor(
     private momentService: MomentService,
@@ -50,11 +51,17 @@ export class EditMomentComponent implements OnInit {
       formData.append('image', momentData.image);
     }
 
-    await this.momentService.editMoment(id!, formData).subscribe(() => {
+    this.btnText = 'Editando...';
+    this.isSubmiting = true;
+
+    this.momentService.editMoment(id!, formData).subscribe(() => {
       this.messagesService.add(
         `Momento "${this.moment.title}" editado com sucesso!`
       );
       this.router.navigate([`/moments/${id}`], { skipLocationChange: true });
     });
+
+    this.btnText = 'Editar momento';
+    this.isSubmiting = false;
   }
 }
