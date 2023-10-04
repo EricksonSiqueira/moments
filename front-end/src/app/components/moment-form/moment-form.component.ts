@@ -13,7 +13,7 @@ export class MomentFormComponent implements OnInit {
   @Input() momentData: Moment | null = null;
 
   mommentForm!: FormGroup;
-  isSubmiting = true;
+  isSubmiting = false;
 
   ngOnInit(): void {
     this.mommentForm = new FormGroup({
