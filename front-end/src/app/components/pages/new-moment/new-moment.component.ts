@@ -31,7 +31,6 @@ export class NewMomentComponent {
 
     this.isSubmiting = true;
     this.btnText = 'Enviando...';
-    console.log('texto do botão', this.btnText);
 
     this.momentService.createMoment(formData).subscribe(() => {
       this.messageService.add('Momento criado com sucesso!');
