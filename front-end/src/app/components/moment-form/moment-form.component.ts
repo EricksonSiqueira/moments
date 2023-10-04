@@ -10,10 +10,10 @@ import { Moment } from 'src/app/interfaces/Moment';
 export class MomentFormComponent implements OnInit {
   @Output() onSubmit = new EventEmitter<Moment>();
   @Input() btnText!: string;
+  @Input() isSubmiting!: boolean;
   @Input() momentData: Moment | null = null;
 
   mommentForm!: FormGroup;
-  isSubmiting = false;
 
   ngOnInit(): void {
     this.mommentForm = new FormGroup({
@@ -53,14 +53,6 @@ export class MomentFormComponent implements OnInit {
       return;
     }
 
-    const oldBtnText = this.btnText;
-
-    this.isSubmiting = true;
-    this.btnText = 'Enviando...';
-
     this.onSubmit.emit(this.mommentForm.value);
-
-    this.isSubmiting = false;
-    this.btnText = oldBtnText;
   }
 }

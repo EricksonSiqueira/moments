@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class NewMomentComponent {
   btnText = 'Compartilhar!';
+  isSubmiting = false;
 
   constructor(
     private momentService: MomentService,
@@ -28,10 +29,16 @@ export class NewMomentComponent {
       formData.append('image', moment.image);
     }
 
+    this.isSubmiting = true;
+    this.btnText = 'Enviando...';
+
     this.momentService.createMoment(formData).subscribe(() => {
       this.messageService.add('Momento criado com sucesso!');
 
       this.router.navigate(['/'], { skipLocationChange: true });
     });
+
+    this.isSubmiting = false;
+    this.btnText = 'Compartilhar!';
   }
 }
