@@ -54,6 +54,8 @@ export class EditMomentComponent implements OnInit {
     this.btnText = 'Editando...';
     this.isSubmiting = true;
 
+    console.log('texto do botão', this.btnText);
+
     this.momentService.editMoment(id!, formData).subscribe(() => {
       this.messagesService.add(
         `Momento "${this.moment.title}" editado com sucesso!`
