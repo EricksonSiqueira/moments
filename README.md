@@ -5,6 +5,7 @@
 - <img align="center" alt="Erickson-Angular" height="20" width="20" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/angularjs/angularjs-plain.svg"> Angular
 - <img align="center" alt="Erickson-Adonis" height="20" width="20" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/adonisjs/adonisjs-original.svg"> Adonis
 - <img align="center" alt="Erickson-Adonis" height="20" width="20" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg"> Docker
+- <img align="center" alt="Erickson-Adonis" height="20" width="20" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg"> Sass
 
 ## 🏃 How to run it
 
